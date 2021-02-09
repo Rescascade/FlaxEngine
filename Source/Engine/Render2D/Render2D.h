@@ -11,6 +11,7 @@ struct Matrix;
 struct Matrix3x3;
 struct Viewport;
 struct TextRange;
+struct Render2DVertex;
 class Font;
 class GPUPipelineState;
 class GPUTexture;
@@ -339,4 +340,13 @@ public:
     /// <param name="rect">The target rectangle to draw (blurs its background).</param>
     /// <param name="blurStrength">The blur strength defines how blurry the background is. Larger numbers increase blur, resulting in a larger runtime cost on the GPU.</param>
     API_FUNCTION() static void DrawBlur(const Rectangle& rect, float blurStrength);
+
+    /// <summary>
+    /// TODO :
+    /// </summary>
+    /// <param name="rect">Todo</param>
+    /// <param name="blurStrength">Todo</param>
+    API_FUNCTION() static void DrawCustomVertices(void* vertices, int numVertices, void* indices, int numIndices);
+
+   
 };

@@ -71,7 +71,7 @@ struct NavigationSceneRasterization
         Context = context;
         Config = config;
         Heightfield = heightfield;
-        WalkableThreshold = Math::Cos(config->walkableSlopeAngle * DegreesToRadians);
+        WalkableThreshold = Math::Cos(config->walkableSlopeAngle * FDegreesToRadians);
         OffMeshLinks = offMeshLinks;
     }
 

@@ -18,10 +18,10 @@
 #define ZeroTolerance 1e-6f
 
 // Converts radians to degrees.
-#define RadiansToDegrees (180.0f / PI)
+#define FRadiansToDegrees (180.0f / PI)
 
 // Converts degrees to radians.
-#define DegreesToRadians (PI / 180.0f)
+#define FDegreesToRadians (PI / 180.0f)
 
 namespace Math
 {

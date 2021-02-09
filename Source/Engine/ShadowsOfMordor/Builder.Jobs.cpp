@@ -322,7 +322,7 @@ void ShadowsOfMordor::Builder::onJobRender(GPUContext* context)
         int32 hemispheresToRenderLeft = _hemispheresPerJob;
         int32 hemispheresToRenderBeforeSyncLeft = hemispheresToRenderLeft > 10 ? HEMISPHERES_PER_GPU_FLUSH : HEMISPHERES_PER_JOB_MAX;
         Matrix view, projection;
-        Matrix::PerspectiveFov(HEMISPHERES_FOV * DegreesToRadians, 1.0f, HEMISPHERES_NEAR_PLANE, HEMISPHERES_FAR_PLANE, projection);
+        Matrix::PerspectiveFov(HEMISPHERES_FOV * FDegreesToRadians, 1.0f, HEMISPHERES_NEAR_PLANE, HEMISPHERES_FAR_PLANE, projection);
         ShaderData shaderData;
 #if COMPILE_WITH_PROFILER
         auto gpuProfilerEnabled = ProfilerGPU::Enabled;

@@ -214,8 +214,8 @@ void FoliageTools::Paint(Foliage* foliage, Span<int32> foliageTypesIndices, cons
             const FoliageType& foliageType = foliage->FoliageTypes[foliageTypeIndex];
 
             // Prepare
-            const float minNormalAngle = Math::Cos(foliageType.PaintGroundSlopeAngleMin * DegreesToRadians);
-            const float maxNormalAngle = Math::Cos(foliageType.PaintGroundSlopeAngleMax * DegreesToRadians);
+            const float minNormalAngle = Math::Cos(foliageType.PaintGroundSlopeAngleMin * FDegreesToRadians);
+            const float maxNormalAngle = Math::Cos(foliageType.PaintGroundSlopeAngleMax * FDegreesToRadians);
             const bool usePaintRadius = foliageType.PaintRadius > 0.0f;
             const float paintRadiusSqr = foliageType.PaintRadius * foliageType.PaintRadius;
 
@@ -314,13 +314,13 @@ void FoliageTools::Paint(Foliage* foliage, Span<int32> foliageTypesIndices, cons
 
             if (!Math::IsZero(foliageType.PlacementRandomRollAngle))
             {
-                Quaternion::RotationAxis(Vector3::UnitZ, Random::Rand() * DegreesToRadians * foliageType.PlacementRandomRollAngle, tmp);
+                Quaternion::RotationAxis(Vector3::UnitZ, Random::Rand() * FDegreesToRadians * foliageType.PlacementRandomRollAngle, tmp);
                 instance.Transform.Orientation *= tmp;
             }
 
             if (!Math::IsZero(foliageType.PlacementRandomPitchAngle))
             {
-                Quaternion::RotationAxis(Vector3::UnitX, Random::Rand() * DegreesToRadians * foliageType.PlacementRandomPitchAngle, tmp);
+                Quaternion::RotationAxis(Vector3::UnitX, Random::Rand() * FDegreesToRadians * foliageType.PlacementRandomPitchAngle, tmp);
                 instance.Transform.Orientation *= tmp;
             }
 

@@ -400,7 +400,7 @@ bool MeshData::GenerateNormals(float smoothingAngle)
     }
     else
     {
-        const float limit = cosf(smoothingAngle * DegreesToRadians);
+        const float limit = cosf(smoothingAngle * FDegreesToRadians);
 
         for (int32 i = 0; i < vertexCount; i++)
         {
@@ -543,7 +543,7 @@ bool MeshData::GenerateTangents(float smoothingAngle)
 #endif
 
     const float posEpsilon = (max - min).Length() * 1e-4f;
-    const float limit = cosf(smoothingAngle * DegreesToRadians);
+    const float limit = cosf(smoothingAngle * FDegreesToRadians);
     Array<int32> closeVertices;
 
     // In the second pass we now smooth out all tangents at the same local position if they are not too far off

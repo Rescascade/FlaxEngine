@@ -38,7 +38,7 @@ void HingeJoint::SetLimit(const LimitAngularRange& value)
     if (_joint)
     {
         auto joint = static_cast<PxRevoluteJoint*>(_joint);
-        PxJointAngularLimitPair limit(value.Lower * DegreesToRadians, value.Upper * DegreesToRadians, value.ContactDist);
+        PxJointAngularLimitPair limit(value.Lower * FDegreesToRadians, value.Upper * FDegreesToRadians, value.ContactDist);
         limit.stiffness = value.Spring.Stiffness;
         limit.damping = value.Spring.Damping;
         limit.restitution = value.Restitution;
@@ -128,7 +128,7 @@ PxJoint* HingeJoint::CreateJoint(JointData& data)
     joint->setDriveVelocity(_drive.Velocity);
     joint->setDriveForceLimit(_drive.ForceLimit);
     joint->setDriveGearRatio(_drive.GearRatio);
-    PxJointAngularLimitPair limit(_limit.Lower * DegreesToRadians, _limit.Upper * DegreesToRadians, _limit.ContactDist);
+    PxJointAngularLimitPair limit(_limit.Lower * FDegreesToRadians, _limit.Upper * FDegreesToRadians, _limit.ContactDist);
     limit.stiffness = _limit.Spring.Stiffness;
     limit.damping = _limit.Spring.Damping;
     limit.restitution = _limit.Restitution;

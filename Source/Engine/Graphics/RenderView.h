@@ -285,7 +285,7 @@ public:
         Position = position;
 
         // Create projection matrix
-        Matrix::PerspectiveFov(angle * DegreesToRadians, 1.0f, nearPlane, farPlane, Projection);
+        Matrix::PerspectiveFov(angle * FDegreesToRadians, 1.0f, nearPlane, farPlane, Projection);
         NonJitteredProjection = Projection;
         Matrix::Invert(Projection, IP);
 

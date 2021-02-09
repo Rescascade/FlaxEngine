@@ -195,7 +195,7 @@ void Camera::GetMatrices(Matrix& view, Matrix& projection, const Viewport& viewp
     if (_usePerspective)
     {
         const float aspect = _customAspectRatio <= 0.0f ? viewport.GetAspectRatio() : _customAspectRatio;
-        Matrix::PerspectiveFov(_fov * DegreesToRadians, aspect, _near, _far, projection);
+        Matrix::PerspectiveFov(_fov * FDegreesToRadians, aspect, _near, _far, projection);
     }
     else
     {

@@ -77,7 +77,7 @@ void D6Joint::SetLimitTwist(const LimitAngularRange& value)
     if (_joint)
     {
         auto joint = static_cast<PxD6Joint*>(_joint);
-        PxJointAngularLimitPair pxLimit(value.Lower * DegreesToRadians, value.Upper * DegreesToRadians, value.ContactDist);
+        PxJointAngularLimitPair pxLimit(value.Lower * FDegreesToRadians, value.Upper * FDegreesToRadians, value.ContactDist);
         pxLimit.stiffness = value.Spring.Stiffness;
         pxLimit.damping = value.Spring.Damping;
         pxLimit.restitution = value.Restitution;
@@ -95,7 +95,7 @@ void D6Joint::SetLimitSwing(const LimitConeRange& value)
     if (_joint)
     {
         auto joint = static_cast<PxD6Joint*>(_joint);
-        PxJointLimitCone pxLimit(value.YLimitAngle * DegreesToRadians, value.ZLimitAngle * DegreesToRadians, value.ContactDist);
+        PxJointLimitCone pxLimit(value.YLimitAngle * FDegreesToRadians, value.ZLimitAngle * FDegreesToRadians, value.ContactDist);
         pxLimit.stiffness = value.Spring.Stiffness;
         pxLimit.damping = value.Spring.Damping;
         pxLimit.restitution = value.Restitution;
@@ -375,7 +375,7 @@ PxJoint* D6Joint::CreateJoint(JointData& data)
 
     {
         const auto& value = _limitTwist;
-        PxJointAngularLimitPair pxLimit(value.Lower * DegreesToRadians, value.Upper * DegreesToRadians, value.ContactDist);
+        PxJointAngularLimitPair pxLimit(value.Lower * FDegreesToRadians, value.Upper * FDegreesToRadians, value.ContactDist);
         pxLimit.stiffness = value.Spring.Stiffness;
         pxLimit.damping = value.Spring.Damping;
         pxLimit.restitution = value.Restitution;
@@ -384,7 +384,7 @@ PxJoint* D6Joint::CreateJoint(JointData& data)
 
     {
         const auto& value = _limitSwing;
-        PxJointLimitCone pxLimit(value.YLimitAngle * DegreesToRadians, value.ZLimitAngle * DegreesToRadians, value.ContactDist);
+        PxJointLimitCone pxLimit(value.YLimitAngle * FDegreesToRadians, value.ZLimitAngle * FDegreesToRadians, value.ContactDist);
         pxLimit.stiffness = value.Spring.Stiffness;
         pxLimit.damping = value.Spring.Damping;
         pxLimit.restitution = value.Restitution;

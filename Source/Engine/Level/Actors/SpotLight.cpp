@@ -95,8 +95,8 @@ void SpotLight::UpdateBounds()
     _direction.Normalize();
 
     // Cache cone angles
-    _cosOuterCone = Math::Cos(_outerConeAngle * DegreesToRadians);
-    _cosInnerCone = Math::Cos(_innerConeAngle * DegreesToRadians);
+    _cosOuterCone = Math::Cos(_outerConeAngle * FDegreesToRadians);
+    _cosInnerCone = Math::Cos(_innerConeAngle * FDegreesToRadians);
     _invCosConeDifference = 1.0f / (_cosInnerCone - _cosOuterCone);
 
     // Cache bounds
@@ -198,8 +198,8 @@ void SpotLight::OnDebugDrawSelected()
     Vector3 up = _transform.GetUp();
     Vector3 forward = GetDirection();
     float radius = GetScaledRadius();
-    float discRadius = radius * tan(_outerConeAngle * DegreesToRadians);
-    float falloffDiscRadius = radius * tan(_innerConeAngle * DegreesToRadians);
+    float discRadius = radius * tan(_outerConeAngle * FDegreesToRadians);
+    float falloffDiscRadius = radius * tan(_innerConeAngle * FDegreesToRadians);
     Vector3 position = GetPosition();
 
     DEBUG_DRAW_LINE(position, position + forward * radius + up * discRadius, color, 0, true);

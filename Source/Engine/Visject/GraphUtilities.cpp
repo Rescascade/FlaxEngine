@@ -583,7 +583,7 @@ void GraphUtilities::ApplySomeMathHere(uint16 typeId, Variant& v, Variant& a)
     {
         op = [](float a)
         {
-            return a * RadiansToDegrees;
+            return a * FRadiansToDegrees;
         };
         break;
     }
@@ -591,7 +591,7 @@ void GraphUtilities::ApplySomeMathHere(uint16 typeId, Variant& v, Variant& a)
     {
         op = [](float a)
         {
-            return a * DegreesToRadians;
+            return a * FDegreesToRadians;
         };
         break;
     }

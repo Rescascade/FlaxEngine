@@ -149,6 +149,7 @@ struct Render2DVertex
     RotatedRectangle ClipMask;
 };
 
+
 struct CachedPSO
 {
     bool Inited = false;
@@ -1716,3 +1717,22 @@ void Render2D::DrawBlur(const Rectangle& rect, float blurStrength)
     drawCall.AsBlur.BottomRightY = p.Y;
     WriteRect(rect, Color::White);
 }
+
+API_FUNCTION() void Render2D::DrawCustomVertices(void* vertices, int numVertices, void* indices, int numIndices)
+{
+
+   /* Render2DDrawCall& drawCall = DrawCalls.AddOne();
+    drawCall.Type = DrawCallType::FillRect;
+    drawCall.StartIB = IBIndex;
+    drawCall.CountIB = numIndices;*/
+
+    VB.Write(&vertices, sizeof(Render2DVertex) * numVertices);
+    IB.Write(&indices, sizeof(uint32) * numIndices);
+
+    VBIndex += numVertices;
+    IBIndex += numIndices;
+
+
+    return API_FUNCTION() void();
+}
+

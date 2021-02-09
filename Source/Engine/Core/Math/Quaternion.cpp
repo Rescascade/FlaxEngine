@@ -70,7 +70,7 @@ Vector3 Quaternion::GetEuler() const
         result.Z = Math::Atan2(2.0f * q.X * q.Y + 2.0f * q.Z * q.W, 1 - 2.0f * (q.Y * q.Y + q.Z * q.Z));
     }
 
-    result *= RadiansToDegrees;
+    result *= FRadiansToDegrees;
     result.UnwindEuler();
     return result;
 }
@@ -398,9 +398,9 @@ void Quaternion::Slerp(const Quaternion& start, const Quaternion& end, float amo
 
 Quaternion Quaternion::Euler(float x, float y, float z)
 {
-    const float halfRoll = z * (DegreesToRadians * 0.5f);
-    const float halfPitch = x * (DegreesToRadians * 0.5f);
-    const float halfYaw = y * (DegreesToRadians * 0.5f);
+    const float halfRoll = z * (FDegreesToRadians * 0.5f);
+    const float halfPitch = x * (FDegreesToRadians * 0.5f);
+    const float halfYaw = y * (FDegreesToRadians * 0.5f);
 
     const float sinRollOver2 = Math::Sin(halfRoll);
     const float cosRollOver2 = Math::Cos(halfRoll);
@@ -419,9 +419,9 @@ Quaternion Quaternion::Euler(float x, float y, float z)
 
 Quaternion Quaternion::Euler(const Vector3& euler)
 {
-    const float halfRoll = euler.Z * (DegreesToRadians * 0.5f);
-    const float halfPitch = euler.X * (DegreesToRadians * 0.5f);
-    const float halfYaw = euler.Y * (DegreesToRadians * 0.5f);
+    const float halfRoll = euler.Z * (FDegreesToRadians * 0.5f);
+    const float halfPitch = euler.X * (FDegreesToRadians * 0.5f);
+    const float halfYaw = euler.Y * (FDegreesToRadians * 0.5f);
 
     const float sinRollOver2 = Math::Sin(halfRoll);
     const float cosRollOver2 = Math::Cos(halfRoll);

@@ -63,7 +63,7 @@ void CharacterController::SetSlopeLimit(float value)
     _slopeLimit = value;
 
     if (_controller)
-        _controller->setSlopeLimit(cosf(value * DegreesToRadians));
+        _controller->setSlopeLimit(cosf(value * FDegreesToRadians));
 }
 
 void CharacterController::SetNonWalkableMode(NonWalkableModes value)
@@ -166,7 +166,7 @@ void CharacterController::CreateActor()
     desc.userData = this;
     desc.contactOffset = Math::Max(_contactOffset, ZeroTolerance);
     desc.position = PxExtendedVec3(_transform.Translation.X, _transform.Translation.Y, _transform.Translation.Z);
-    desc.slopeLimit = Math::Cos(_slopeLimit * DegreesToRadians);
+    desc.slopeLimit = Math::Cos(_slopeLimit * FDegreesToRadians);
     desc.nonWalkableMode = static_cast<PxControllerNonWalkableMode::Enum>(_nonWalkableMode);
     desc.climbingMode = PxCapsuleClimbingMode::eEASY;
     desc.stepOffset = _stepOffset;

@@ -79,7 +79,7 @@ bool CSG::Mesh::Triangulate(RawData& data, Array<RawModelVertex>& cacheVB) const
                     surfaceForward = Vector3::Forward;
 
                 Matrix::CreateWorld(Vector3::Zero, surfaceForward, surfaceUp, trans);
-                Matrix::RotationAxis(surfaceUp, surface.TexCoordRotation * DegreesToRadians, transRotation);
+                Matrix::RotationAxis(surfaceUp, surface.TexCoordRotation * FDegreesToRadians, transRotation);
                 Matrix::Multiply(transRotation, trans, finalTrans);
                 Vector3::Transform(Vector3::Zero, finalTrans, centerPos);
 

@@ -669,7 +669,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 #define INPUTS_FETCH() \
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = (float)GetValue(radiusBox, 3); \
-	const float arc = (float)GetValue(arcBox, 4) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 4) * FDegreesToRadians
 #define LOGIC() \
 	float cosPhi = 2.0f * RAND - 1.0f; \
 	float theta = arc * RAND; \
@@ -752,7 +752,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 #define INPUTS_FETCH() \
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = (float)GetValue(radiusBox, 3); \
-	const float arc = (float)GetValue(arcBox, 4) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 4) * FDegreesToRadians
 #define LOGIC() \
 	float theta = arc * RAND; \
 	Vector2 sincosTheta; \
@@ -795,7 +795,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 #define INPUTS_FETCH() \
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = (float)GetValue(radiusBox, 3); \
-	const float arc = (float)GetValue(arcBox, 4) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 4) * FDegreesToRadians
 #define LOGIC() \
 	float theta = arc * RAND; \
 	Vector2 sincosTheta; \
@@ -928,7 +928,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = (float)GetValue(radiusBox, 3); \
 	const float height = (float)GetValue(heightBox, 4); \
-	const float arc = (float)GetValue(arcBox, 5) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 5) * FDegreesToRadians
 #define LOGIC() \
 	float theta = arc * RAND; \
 	Vector2 sincosTheta; \
@@ -1011,7 +1011,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = Math::Max((float)GetValue(radiusBox, 3), ZeroTolerance); \
 	const float thickness = (float)GetValue(thicknessBox, 4); \
-	const float arc = (float)GetValue(arcBox, 5) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 5) * FDegreesToRadians
 #define LOGIC() \
 	Vector3 u = RAND3; \
 	float sinTheta, cosTheta; \
@@ -1073,7 +1073,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 #define INPUTS_FETCH() \
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float radius = (float)GetValue(radiusBox, 3); \
-	const float arc = (float)GetValue(arcBox, 4) * DegreesToRadians
+	const float arc = (float)GetValue(arcBox, 4) * FDegreesToRadians
 #define LOGIC() \
 	float cosPhi = 2.0f * RAND - 1.0f; \
 	float theta = arc * RAND; \
@@ -1129,7 +1129,7 @@ void ParticleEmitterGraphCPUExecutor::ProcessModule(ParticleEmitterGraphCPUNode*
 	const Vector3 center = (Vector3)GetValue(centerBox, 2); \
 	const float rotationSpeed = (float)GetValue(rotationSpeedBox, 3); \
 	const float velocityScale = (float)GetValue(velocityScaleBox, 4); \
-	const float arcStep = rotationSpeed / (360.0f * DegreesToRadians)
+	const float arcStep = rotationSpeed / (360.0f * FDegreesToRadians)
 #define LOGIC() \
 	Vector2 sincosTheta; \
 	Math::SinCos(arc, sincosTheta.X, sincosTheta.Y); \
